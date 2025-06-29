@@ -1,0 +1,44 @@
+@page
+@model AgenciaTurismo.Pages.ViewNotesModel
+@{
+    ViewData["Title"] = "Anotações";
+}
+
+<h2>Nova Anotação</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="fileName">Nome do arquivo (sem extensão)</label>
+        <input type="text" name="FileName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="content">Conteúdo</label>
+        <textarea name="NoteContent" rows="5" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<hr />
+
+<h2>Arquivos Salvos</h2>
+@if (Model.FileNames.Any())
+{
+    <ul>
+        @foreach (var file in Model.FileNames)
+        {
+            <li>
+                <a href="?selected=@file">@file</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nenhum arquivo encontrado.</p>
+}
+
+@if (!string.IsNullOrEmpty(Model.SelectedContent))
+{
+    <h3>Conteúdo de @Model.SelectedFile</h3>
+    <pre>@Model.SelectedContent</pre>
+}

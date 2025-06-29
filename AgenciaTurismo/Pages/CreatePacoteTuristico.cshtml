@@ -1,0 +1,39 @@
+@page
+@model AgenciaTurismo.Pages.CreatePacoteTuristicoModel
+@{
+    ViewData["Title"] = "Criar Pacote Turístico";
+}
+
+<h2>Criar Pacote Turístico</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Pacote.Titulo" class="form-label"></label>
+        <input asp-for="Pacote.Titulo" class="form-control" />
+        <span asp-validation-for="Pacote.Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pacote.DataInicio" class="form-label"></label>
+        <input asp-for="Pacote.DataInicio" class="form-control" type="date" />
+        <span asp-validation-for="Pacote.DataInicio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pacote.CapacidadeMaxima" class="form-label"></label>
+        <input asp-for="Pacote.CapacidadeMaxima" class="form-control" />
+        <span asp-validation-for="Pacote.CapacidadeMaxima" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pacote.Preco" class="form-label"></label>
+        <input asp-for="Pacote.Preco" class="form-control" />
+        <span asp-validation-for="Pacote.Preco" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

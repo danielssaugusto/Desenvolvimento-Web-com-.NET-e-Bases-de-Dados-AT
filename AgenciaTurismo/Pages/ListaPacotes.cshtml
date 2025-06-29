@@ -1,0 +1,39 @@
+@page
+@model AgenciaTurismo.Pages.ListaPacotesModel
+@{
+    ViewData["Title"] = "Nossos Pacotes Turísticos";
+}
+
+<h1>Nossos Pacotes Turísticos</h1>
+
+@if (Model.Pacotes == null || !Model.Pacotes.Any())
+{
+    <p>Nenhum pacote disponível no momento.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Data de Início</th>
+                <th>Preço</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pacote in Model.Pacotes)
+            {
+                <tr>
+                    <td>@pacote.Titulo</td>
+                    <td>@pacote.DataInicio.ToShortDateString()</td>
+                    <td>@pacote.Preco.ToString("C")</td>
+                    <td>
+                        @* O link para detalhes DEVE passar o ID *@
+                        <a asp-page="/PacoteDetails" asp-route-id="@pacote.Id">Ver Detalhes</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

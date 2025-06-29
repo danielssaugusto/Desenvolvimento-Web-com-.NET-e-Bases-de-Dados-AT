@@ -1,0 +1,21 @@
+@page
+@model AgenciaTurismo.Pages.CreateCidadeDestinoModel
+@{
+    ViewData["Title"] = "Cadastrar Cidade Destino";
+}
+
+<h2>Cadastrar Cidade Destino</h2>
+
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Cidade.Nome" class="form-label"></label>
+        <input asp-for="Cidade.Nome" class="form-control" />
+        <span asp-validation-for="Cidade.Nome" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

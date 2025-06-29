@@ -1,0 +1,19 @@
+@page
+@model AgenciaTurismo.Pages.TestCapacityModel
+@{
+    ViewData["Title"] = "Teste Capacidade do Pacote";
+}
+
+<h2>@Model.Pacote?.Titulo ?? "Nenhum pacote carregado"</h2>
+
+<p>Capacidade máxima: @(Model.Pacote?.CapacidadeMaxima ?? 0)</p>
+<p>Reservas feitas: @(Model.Pacote?.Reservas?.Count ?? 0)</p>
+
+<form method="post" asp-page-handler="AddReserva">
+    <button type="submit">Adicionar Reserva</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.MensagemEvento))
+{
+    <p style="color:red;">@Model.MensagemEvento</p>
+}

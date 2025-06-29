@@ -1,0 +1,20 @@
+@page
+@model AgenciaTurismo.Pages.DiscountModel
+@{
+    ViewData["Title"] = "Cálculo de Desconto";
+}
+
+<h2>Cálculo de Desconto</h2>
+
+<form method="post">
+    <label for="preco">Preço original (R$):</label>
+    <input type="number" step="0.01" name="PrecoOriginal" required />
+    <button type="submit">Calcular Desconto</button>
+</form>
+
+@if (Model.PrecoOriginal > 0)
+{
+    <hr />
+    <p><strong>Preço original:</strong> R$ @Model.PrecoOriginal</p>
+    <p><strong>Preço com 10% de desconto:</strong> R$ @Model.PrecoComDesconto</p>
+}
